@@ -1,0 +1,44 @@
+\documentclass[12pt,a4paper,oneside]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[numbers,sort&compress]{natbib}
+
+\title{\textbf{Multi-Class Histopathology Semantic Segmentation on Whole Slide Images: From Supervised Baselines to Dynamic Attention Rectification}}
+\author{\textbf{Pragyan Prayas Jena}}
+\date{November 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Whole slide imaging (WSI) in computational digital pathology produces gigapixel-scale tissue preparations requiring multi-class pixel-level semantic characterization. This thesis investigates multi-class tissue segmentation on the Breast Cancer Semantic Segmentation (BCSS) benchmark across tumor epithelium, stroma, necrosis, and lymphocyte infiltration. We establish a fully supervised U-Net baseline before exploring single-stage feature rectification and dynamic attention bias mechanisms.
+\end{abstract}
+
+\tableofcontents
+
+\chapter{Introduction}
+\input{chapters/01_introduction}
+
+\chapter{Literature Review}
+\input{chapters/02_literature_review}
+
+\chapter{Methodology}
+\input{chapters/03_methodology}
+
+\chapter{Experiments and Results}
+\input{chapters/04_experiments}
+
+\chapter{Discussion and Conclusion}
+\input{chapters/05_conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

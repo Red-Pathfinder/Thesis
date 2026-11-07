@@ -1,129 +1,49 @@
-# ==============================================================================
-# Git Ignore Configuration - Computational Digital Pathology Thesis
-# ==============================================================================
-
-# OS & Environment Metadata
-.DS_Store
-.DS_Store?
-._*
-Thumbs.db
-ehthumbs.db
-
-# Virtual Environments
-venv/
-.venv/
-env/
-ENV/
-env.bak/
-venv.bak/
-
-# Python Cache & Bytecode
+# Python & Bytecode
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+env/
+venv/
+.venv/
 
-# Testing & Coverage
-.pytest_cache/
-.coverage
-.coverage.*
-htmlcov/
-.tox/
-.nox/
-
-# Jupyter / IPython
+# Jupyter Notebook Checkpoints
 .ipynb_checkpoints/
-*/.ipynb_checkpoints/*
-*.ipynb_checkpoints
 
-# IDEs & Editors
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# PyTorch Checkpoints & Serialized Model Weights
+# Heavy Deep Learning Checkpoints & Weights (Store on Google Drive in Colab)
 *.pt
 *.pth
 *.ckpt
 *.bin
-*.safetensors
 *.onnx
-*.engine
+experiments/*/checkpoints/
+experiments/*/*.pt
 
-# Digital Pathology & Whole Slide Images (WSI)
-*.wsi
+# Large Pathology Data & WSIs (Keep manifests only)
+data/raw/
+data/patches/
 *.svs
+*.wsi
 *.tif
 *.tiff
-*.ndpi
-*.mrxs
-*.vms
-*.vmu
-*.scn
-*.bif
 *.h5
 *.hdf5
-*.zarr
 
-# Raw Datasets & Large Archives
-data/raw/
-*.zip
-*.tar
-*.tar.gz
-*.tgz
-*.7z
-*.bz2
+# Zotero local symlinks (Mac-specific paths)
+literature/zotero_thesis_papers/
 
-# Experiment Outputs & Heavy Logs (Keep .gitkeep)
-experiments/*
-!experiments/.gitkeep
-wandb/
-lightning_logs/
-events.out.tfevents.*
+# OS Specific
+.DS_Store
+Thumbs.db
 
-# LaTeX Compilation Artifacts
+# LaTeX compilation intermediates
 *.aux
 *.bbl
 *.blg
-*.brf
-*.fdb_latexmk
-*.fls
-*.lof
 *.log
-*.lot
 *.out
-*.synctex.gz
 *.toc
-*.run.xml
-*-blx.bib
-*.nav
-*.snm
-*.vrb
-
-# Literature PDFs (Keep notes and manifests in git; manage PDFs via Zotero/local storage)
-literature/pdfs/*
-!literature/pdfs/.gitkeep
-
-# Explicit Includes: Never ignore memory, configs, and manifests
-!.gitkeep
-!.memory/
-!configs/
-!data/manifests/
-!data/splits/
+*.synctex.gz
+*.fls
+*.fdb_latexmk

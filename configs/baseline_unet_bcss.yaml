@@ -1,0 +1,42 @@
+# BCSS Baseline U-Net Experiment Configuration
+experiment_name: "baseline_unet_bcss_v1"
+seed: 42
+
+dataset:
+  name: "BCSS"
+  num_classes: 5
+  class_names: ["Tumor", "Stroma", "Necrosis", "Lymphocyte", "Background"]
+  patch_size: [512, 512]
+  manifest_path: "data/patch_manifest.csv"
+  normalization:
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+
+model:
+  architecture: "UNet"
+  in_channels: 3
+  out_channels: 5
+  base_channels: 64
+  bilinear: true
+
+training:
+  batch_size: 16
+  num_workers: 4
+  epochs: 40
+  learning_rate: 0.0001
+  optimizer: "AdamW"
+  weight_decay: 0.0001
+  loss: "ComboLoss" # CrossEntropy + SoftDice
+  loss_weights:
+    ce: 0.5
+    dice: 0.5
+  scheduler: "CosineAnnealingLR"
+  min_lr: 0.000001
+
+hardware:
+  device: "cuda" # Automatically falls back to cpu or mps locally
+  mixed_precision: true
+
+logging:
+  output_dir: "experiments/baseline_unet_v1"
+  save_frequency: 5
